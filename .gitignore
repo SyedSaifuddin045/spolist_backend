@@ -1,3 +1,5 @@
 Spolist_Backend
 .vscode/
 .env
+static/
+.cache

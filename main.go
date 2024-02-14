@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/SyedSaifuddin045/Spolist_Backend/song"
 	"github.com/joho/godotenv"
 )
 
@@ -18,6 +19,7 @@ func main() {
 	}
 	fmt.Println("Starting server on :" + Port)
 	http.HandleFunc("/", handler)
+	http.HandleFunc("/download_song", song.HandleSongDownload)
 	http.ListenAndServe(":"+Port, nil)
 }
 
