@@ -177,6 +177,10 @@ func SendSong(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("Error sending song file: %v", err), http.StatusInternalServerError)
 		return
 	}
+	err = os.Remove(songFileName)
+	if err != nil {
+		fmt.Printf("Error deleting song file: %v\n", err)
+	}
 }
 
 func moveMP3File(sourcePath, destinationFolder, newFilename string) error {
